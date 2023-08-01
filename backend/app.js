@@ -6,6 +6,13 @@ const bodyParser = require ('body-parser')
 require('dotenv').config()
 var cors = require("cors")
 const cookieParser = require('cookie-parser')
+const errorHandler = require('./middleware/error')
+
+//import routes
+const authRoutes = require('./routes/authRoutes')
+const userRoutes = require('./routes/userRoutes')
+
+
 
 //database connection
 
@@ -13,7 +20,7 @@ mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology : true
 }).then(()=>console.log("DB connected"))
-.catch((err) => console.log(err))
+.catch((err) => console.log("error occured"))
 
 //middleware
 app.use(morgan('dev'));
@@ -22,6 +29,19 @@ app.use(bodyParser.urlencoded({limit: "5mb", extended: true}));
 app.use(cookieParser())
 app.use(cors())
 
+//Routes Middleware
+
+// app.get('/', (req,res) =>{
+//     res.send("Hello from NodeJs")
+// })
+
+app.use('/api', authRoutes);
+app.use('/api', userRoutes);
+
+
+
+//error middleware
+app.use(errorHandler);
 
 //port
 const port = process.env.PORT || 8000 
