@@ -11,6 +11,8 @@ const errorHandler = require('./middleware/error')
 //import routes
 const authRoutes = require('./routes/authRoutes')
 const userRoutes = require('./routes/userRoutes')
+const jobTypeRoute = require('./routes/jobsTypeRoutes')
+const jobRoute = require('./routes/jobsRoutes')
 
 
 
@@ -23,6 +25,7 @@ mongoose.connect(process.env.DATABASE, {
 .catch((err) => console.log("error occured"))
 
 //middleware
+
 app.use(morgan('dev'));
 app.use(bodyParser.json({limit: "5mb"}));
 app.use(bodyParser.urlencoded({limit: "5mb", extended: true}));
@@ -31,12 +34,11 @@ app.use(cors())
 
 //Routes Middleware
 
-// app.get('/', (req,res) =>{
-//     res.send("Hello from NodeJs")
-// })
-
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
+app.use('/api', jobTypeRoute)
+app.use('/api', jobRoute)
+
 
 
 
