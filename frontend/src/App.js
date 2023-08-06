@@ -13,7 +13,7 @@ import UserRoute from './component/UserRoute';
 import Layout from './pages/global/Layout';
 import UserJobsHistory from './pages/user/UserJobsHistory';
 
-//HOC
+//HOC (hide out component)
 const UserDashboardHOC = Layout(UserDashboard);
 const UserJobsHistoryHOC = Layout(UserJobsHistory);
 

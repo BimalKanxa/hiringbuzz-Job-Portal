@@ -97,7 +97,7 @@ exports.showJobs = async (req, res, next) => {
             success: true,
             jobs,
             page,
-            pages: Math.ceil(count / pageSize),
+            pages: Math.ceil(count / pageSize), 
             count,
             setUniqueLocation
 

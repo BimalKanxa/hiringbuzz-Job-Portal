@@ -75,7 +75,7 @@ const HeaderTop = () => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
-                        HR APP
+                        Hiring Buzz
                     </Typography>
                     <Search>
                         <SearchIconWrapper>
