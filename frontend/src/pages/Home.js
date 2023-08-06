@@ -20,6 +20,7 @@ const Home = () => {
     const { palette } = useTheme();
     const dispatch = useDispatch();
     const { keyword, location } = useParams();
+    
 
     const [page, setPage] = useState(1);
     const [cat, setCat] = React.useState('');

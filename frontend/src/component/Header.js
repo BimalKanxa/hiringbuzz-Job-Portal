@@ -1,6 +1,7 @@
 import { Box, styled } from '@mui/material'
 import React from 'react'
 import headerImage from '../images/headerImage.jpg'
+import SearchInputEl from './SearchInputEl'
 
 const Header = () => {
 
@@ -14,6 +15,7 @@ const Header = () => {
             {
                 display : "flex",
                 justifyContent : "center",
+                alignItems: "center",
                 minHeight: 400,
                 backgroundImage : `url(${headerImage})`,
                 backgroundSize: "cover",
@@ -25,7 +27,7 @@ const Header = () => {
     <>
     
             <StyleHeader>
-
+<SearchInputEl></SearchInputEl>
             </StyleHeader>
 
     </>
