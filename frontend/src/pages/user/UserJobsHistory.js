@@ -1,17 +1,18 @@
 import { Typography } from '@mui/material'
 import { Box } from '@mui/material'
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import CardElement from '../../component/CardElement'
-import { userProfileAction } from '../../redux/actions/userAction'
+// import { userProfileAction } from '../../redux/actions/userAction'
 
 const UserJobsHistory = () => {
     const { user } = useSelector(state => state.userProfile);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(userProfileAction());
-        //eslint-disable-next-line
-    }, []);
+
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(userProfileAction());
+    //     //eslint-disable-next-line
+    // }, []);
 
     return (
         <>
@@ -19,6 +20,7 @@ const UserJobsHistory = () => {
                 <Typography variant="h4" sx={{ color: "#fafafa" }}> Jobs History</Typography>
                 <Box>
                     {
+                    user && user.jobsHistory ?(
                         user && user.jobsHistory.map((history, i) => (
                             <CardElement
                                 key={i}
@@ -29,6 +31,8 @@ const UserJobsHistory = () => {
                                 location={history.location}
                             />
                         ))
+                    ) :  (<Typography variant="body1" sx={{ paddingTop: 2, marginTop: 2 }}>No jobs applied.</Typography>
+                    )
                     }
                 </Box>
             </Box>

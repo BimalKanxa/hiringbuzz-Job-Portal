@@ -1,14 +1,18 @@
 import {createTheme} from '@mui/material/styles';
-import {blue, lightBlue, red} from '@mui/material/colors';
+import {lightBlue} from '@mui/material/colors';
 
 export const theme = createTheme({
     palette :{
         primary:{
-            main:red[500]     //blue
+            main: '#C7762B'         //blue[500]
         },
         secondary :{
-            main: lightBlue[800],
+            main:   '#2B324D',              //lightBlue[800],
             midNightBlue : '#003366'
+        },
+        navbarColor : {
+            
+            main: lightBlue[500]
         }
     }
 })

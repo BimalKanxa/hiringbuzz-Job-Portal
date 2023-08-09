@@ -38,7 +38,7 @@ exports.signin = async (req, res, next) => {
         if (!user) {
             return next(new ErrorResponse("invalid credentials", 400));
         }
-        //check password
+        //check password 
         const isMatched = user.comparePassword(password);
         if (!isMatched) {
             return next(new ErrorResponse("invalid credentials", 400));

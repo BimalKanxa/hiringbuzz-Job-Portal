@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect }  from 'react'
 import { Sidebar, Menu, MenuItem, menuClasses, useProSidebar } from 'react-pro-sidebar';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
@@ -11,9 +11,10 @@ import Avatar from '@mui/material/Avatar';
 import logoDashboard from '../../images/HiringBuzz.png'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { userLogoutAction } from '../../redux/actions/userAction';
+import { userLogoutAction, userProfileAction } from '../../redux/actions/userAction';
 import { useNavigate } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/Login';
+
 
 
 const SidebarAdm = () => {
@@ -22,6 +23,11 @@ const SidebarAdm = () => {
     const { collapsed } = useProSidebar();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    useEffect(() =>{
+        dispatch(userProfileAction())
+        //eslint-disable-next-line
+    }, [])
 
     //log out 
     const logOut = () => {
