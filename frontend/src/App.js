@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ProSidebarProvider } from 'react-pro-sidebar';
 import LogIn from './pages/Login';
+import Register from './pages/Register';
 import UserDashboard from './pages/user/UserDashboard';
 import UserRoute from './component/UserRoute';
 import Layout from './pages/global/Layout';
@@ -16,12 +17,19 @@ import UserInfoDashboard from './pages/user/UserInfoDashboard';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminRoute from './component/AdminRoute';
 import SingleJob from './pages/SingleJob';
+import DashUsers from './pages/admin/DashUsers';
+import DashJobs from './pages/admin/DashJobs';
+import DashCategory from './pages/admin/DashCategory';
 
 //HOC -> higher order component
 const UserDashboardHOC = Layout(UserDashboard);
 const UserJobsHistoryHOC = Layout(UserJobsHistory);
 const UserInfoDashboardHOC = Layout(UserInfoDashboard)
 const AdminDashboardHOC = Layout(AdminDashboard)
+const DashUsersHOC = Layout(DashUsers)
+const DashJobsHOC = Layout(DashJobs)
+const DashCategoryHOC = Layout(DashCategory)
+
 
 
 
@@ -40,10 +48,18 @@ const App = () => {
                             <Route path='/search/:keyword' element={<Home />} />
 
                             <Route path='/login' element={<LogIn />} />
+                            
+                            <Route path='/register' element={<Register />} />
 
                             <Route path='/job/:id' element={<SingleJob />} />
 
                             <Route path='/admin/dashboard' element={<AdminRoute> <AdminDashboardHOC /> </AdminRoute>} />
+
+                            <Route path='/admin/users' element={<AdminRoute> <DashUsersHOC /> </AdminRoute>} />
+
+                            <Route path='/admin/jobs' element={<AdminRoute> <DashJobsHOC /> </AdminRoute>} />
+
+                            <Route path='/admin/category' element={<AdminRoute> <DashCategoryHOC /> </AdminRoute>} />
 
                             <Route path='/user/dashboard' element={<UserRoute>< UserDashboardHOC /></UserRoute>} />
 

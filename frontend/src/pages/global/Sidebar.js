@@ -7,6 +7,7 @@ import WorkIcon from '@mui/icons-material/Work';
 import CategoryIcon from '@mui/icons-material/Category';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 import Person3Icon from '@mui/icons-material/Person3';
+import HomeIcon from '@mui/icons-material/Home';
 import Avatar from '@mui/material/Avatar';
 import logoDashboard from '../../images/HiringBuzz.png'
 import { Link } from 'react-router-dom';
@@ -32,10 +33,11 @@ const SidebarAdm = () => {
     //log out 
     const logOut = () => {
         dispatch(userLogoutAction());
-        window.location.reload(true);
         setTimeout(() => {
             navigate('/');
-        }, 500)
+        }, 200)
+        window.location.reload(true);
+
     }
 
 
@@ -85,13 +87,15 @@ const SidebarAdm = () => {
                         >
                             {
                                 userInfo && userInfo.role === 1 ?
-                                    <>
+                                    <>  
+                                        <MenuItem component={<Link to="/" />} icon={<HomeIcon />}> Home </MenuItem>
                                         <MenuItem component={<Link to="/admin/dashboard" />} icon={<DashboardIcon />}> Dashboard </MenuItem>
                                         <MenuItem component={<Link to="/admin/users" />} icon={<GroupAddIcon />}> Users </MenuItem>
                                         <MenuItem component={<Link to="/admin/jobs" />} icon={<WorkIcon />}> Jobs </MenuItem>
                                         <MenuItem component={<Link to="/admin/category" />} icon={<CategoryIcon />}> Category </MenuItem>
                                     </> :
                                     <>
+                                        <MenuItem component={<Link to="/" />} icon={<HomeIcon />}> Home </MenuItem>
                                         <MenuItem component={<Link to="/user/dashboard" />} icon={<DashboardIcon />}> Dashboard </MenuItem>
                                         <MenuItem component={<Link to="/user/jobs" />} icon={<WorkHistoryIcon />}> Applied Jobs </MenuItem>
                                         <MenuItem component={<Link to="/user/info" />} icon={<Person3Icon />}> Personal Info </MenuItem>

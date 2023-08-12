@@ -1,6 +1,6 @@
 import { Card, CardContent, Stack, Typography } from '@mui/material'
 import { Box, Container } from '@mui/system'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Footer from '../component/Footer'
@@ -11,15 +11,19 @@ import Button from '@mui/material/Button'
 import { userApplyJobAction } from '../redux/actions/userAction'
 
 
+
 const SingleJob = () => {
+    
     const dispatch = useDispatch();
     const { singleJob, loading } = useSelector(state => state.singleJob)
     const { id } = useParams();
+    
     useEffect(() => {
         dispatch(jobLoadSingleAction(id));
     }, [dispatch,id]);
-
+    const [btntext, setbtntext] = useState("Apply for this Job")
     const applyForAJob = () => {
+        
         dispatch(userApplyJobAction({
             title: singleJob && singleJob.title,
             description: singleJob && singleJob.description,
@@ -27,7 +31,10 @@ const SingleJob = () => {
             location: singleJob && singleJob.location,
             jobType : singleJob && singleJob.jobType.jobTypeName
         }))
+        setbtntext("Already applied")
+
     }
+     
 
     return (
         <>
@@ -43,7 +50,7 @@ const SingleJob = () => {
                             spacing={{ xs: 1, sm: 2, md: 4 }}
                         >
                             <Box sx={{ flex: 4, p: 2 }}>
-{console.log(singleJob)}
+
                                 {
 
                                     loading ? <LoadingBox /> :
@@ -72,7 +79,7 @@ const SingleJob = () => {
                             </Box>
                             <Box sx={{ flex: 1, p: 2 }}>
                                 <Card sx={{ p: 2 }}>
-                                    <Button onClick={applyForAJob} sx={{ fontSize: "13px" }} variant='contained'>Apply for this Job</Button>
+                                    <Button id='jobApplybtn' onClick={applyForAJob} sx={{ fontSize: "13px" }} variant='contained' >{btntext}</Button>
                                 </Card>
                             </Box>
 

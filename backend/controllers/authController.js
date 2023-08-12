@@ -1,8 +1,8 @@
 
-const User = require('../models/userModel');
+const User = require('../models/userModel'); 
 const ErrorResponse = require('../utils/errorResponse');
 
-
+ 
 exports.signup = async (req, res, next) => {
     const { email } = req.body;
     const userExist = await User.findOne({ email });
@@ -39,7 +39,7 @@ exports.signin = async (req, res, next) => {
             return next(new ErrorResponse("invalid credentials", 400));
         }
         //check password 
-        const isMatched = user.comparePassword(password);
+        const isMatched = await user.comparePassword(password);
         if (!isMatched) {
             return next(new ErrorResponse("invalid credentials", 400));
         }

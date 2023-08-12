@@ -173,13 +173,17 @@ const Navbar = () => {
 
                             <MenuItem onClick={handleCloseUserMenu}>
                                 <Typography textAlign="center"><Link style={{ textDecoration: "none", color: palette.primary.main }} to="/admin/dashboard">Admin Dashboard</Link></Typography>
-                                
+
                             </MenuItem>
                             <MenuItem onClick={handleCloseUserMenu}>
-                            <Typography textAlign="center"><Link style={{ textDecoration: "none", color: palette.primary.main }} to="/user/dashboard">User Dashboard</Link></Typography>
-                                
+                                <Typography textAlign="center"><Link style={{ textDecoration: "none", color: palette.primary.main }} to="/user/dashboard">User Dashboard</Link></Typography>
+
                             </MenuItem>
- 
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <Typography textAlign="center"><Link style={{ textDecoration: "none", color: palette.primary.main }} to="/register">Register</Link></Typography>
+
+                            </MenuItem>
+
                             {
                                 !userInfo ?
 
@@ -190,8 +194,10 @@ const Navbar = () => {
                                     <MenuItem onClick={logOutUser}>
                                         <Typography style={{ textDecoration: "none", color: palette.primary.main }} textAlign="center">Log Out</Typography>
                                     </MenuItem>
-                            }
 
+
+                            }
+                            
 
                         </Menu>
                     </Box>

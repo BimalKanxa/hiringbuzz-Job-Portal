@@ -1,81 +1,88 @@
-const User= require('../models/userModel')
-const ErrorResponse = require('../utils/errorResponse')
+const User = require('../models/userModel');
+const ErrorResponse = require('../utils/errorResponse');
 
 //load all users
-exports.allUsers = async (req, res, next) =>{
-
+exports.allUsers = async (req, res, next) => {
     //enable pagination
     const pageSize = 10;
     const page = Number(req.query.pageNumber) || 1;
-    const count = await User.find().estimatedDocumentCount();
+    const count = await User.find({}).estimatedDocumentCount();
+
     try {
-        const users = await User.find().sort({createdAt: -1}).select('-password')
-        .skip(pageSize*(page-1))
-        .limit(pageSize)
+        const users = await User.find().sort({ createdAt: -1 }).select('-password')
+            .skip(pageSize * (page - 1))
+            .limit(pageSize)
 
         res.status(200).json({
-            success : true,
+            success: true,
             users,
             page,
-            pages : Math.ceil(count / pageSize),
+            pages: Math.ceil(count / pageSize),
             count
+
         })
-        next()
+        next();
     } catch (error) {
         return next(error);
     }
 }
 
-exports.singleUser = async(req,res, next) =>{
+//show single user
+exports.singleUser = async (req, res, next) => {
     try {
         const user = await User.findById(req.params.id);
         res.status(200).json({
-            success : true, 
+            success: true,
             user
         })
-        next()
-        
+        next();
+
     } catch (error) {
-        return next(error)
+        return next(error);
     }
 }
 
-exports.editUser = async(req,res, next) =>{
+
+//edit user
+exports.editUser = async (req, res, next) => {
     try {
-        const user = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.status(200).json({
-            success : true, 
+            success: true,
             user
         })
-        next()
-        
+        next();
+
     } catch (error) {
-        return next(error)
-    } 
+        return next(error);
+    }
 }
-exports.deleteUser = async(req,res, next) =>{
+
+//delete user
+exports.deleteUser = async (req, res, next) => {
     try {
         const user = await User.findByIdAndRemove(req.params.id);
         res.status(200).json({
-            success : true, 
-            message : "user deleted"
+            success: true,
+            message: "user deleted"
         })
-        next()
-        
+        next();
+
     } catch (error) {
-        return next(error)
-    } 
+        return next(error);
+    }
 }
 
-//Job history
-exports.createuserJobHistory = async(req,res, next) =>{
-    const {title, description, salary, location} = req.body;
+
+//jobs history
+exports.createUserJobsHistory = async (req, res, next) => {
+    const { title, description, salary, location } = req.body;
+
     try {
-        const currentUser = await User.findOne({_id: req.user._id})
-        if(!currentUser){
-                    return next(new ErrorResponse("You must log In", 401))
-        }
-        else{
+        const currentUser = await User.findOne({ _id: req.user._id });
+        if (!currentUser) {
+            return next(new ErrorResponse("You must log In", 401));
+        } else {
             const addJobHistory = {
                 title,
                 description,
@@ -83,16 +90,17 @@ exports.createuserJobHistory = async(req,res, next) =>{
                 location,
                 user: req.user._id
             }
-            currentUser.jobHistory.push(addJobHistory)
-            await currentUser.save()
+            currentUser.jobsHistory.push(addJobHistory);
+            await currentUser.save();
         }
+
         res.status(200).json({
-            success : true, 
+            success: true,
             currentUser
         })
-        next()
-        
+        next();
+
     } catch (error) {
-        return next(error)
-    } 
+        return next(error);
+    }
 }

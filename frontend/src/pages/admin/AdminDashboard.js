@@ -3,9 +3,9 @@ import StatComponent from '../../component/StatComponent';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import WorkIcon from '@mui/icons-material/Work';
 import CategoryIcon from '@mui/icons-material/Category';
-// import { Chart } from "react-google-charts";
-// import { data, options } from './data/data'
-// import ChartComponent from '../../component/ChartComponent';
+import { Chart } from "react-google-charts";
+import { data, options } from './data/data'
+import ChartComponent from '../../component/ChartComponent';
 
 
 const AdminDashboard = () => {
@@ -43,7 +43,7 @@ const AdminDashboard = () => {
 
                 <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ mt: 3 }}
                     spacing={{ xs: 1, sm: 2, md: 4 }}>
-                    {/* <ChartComponent>
+                    <ChartComponent>
                         <Chart
                             chartType="Bar"
                             data={data}
@@ -52,7 +52,7 @@ const AdminDashboard = () => {
                             height="300px"
                             legendToggle
                         />
-                    </ChartComponent> */}
+                    </ChartComponent>
                 </Stack>
 
             </Box>
