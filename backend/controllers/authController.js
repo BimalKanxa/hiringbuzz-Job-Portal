@@ -1,7 +1,7 @@
 
 const User = require('../models/userModel'); 
 const ErrorResponse = require('../utils/errorResponse');
-
+ 
  
 exports.signup = async (req, res, next) => {
     const { email } = req.body;

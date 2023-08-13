@@ -40,7 +40,7 @@ const DashUsers = () => {
           }
     }
 const handleCreateUser = () => {
-    alert("user can not be created now !!")
+    toast.error("User Cannot be created! Server error",{autoClose: 2000})
 }
     const columns = [
 

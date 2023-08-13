@@ -18,7 +18,7 @@ const validationSchema = yup.object({
         .min(6, 'Description should be of minimum 6 characters length')
         .required('Description is required'),
     salary: yup
-        .number('Enter a salary')
+        .string('Enter a salary')
         .required('Salary is required'),
     location: yup
         .string('Enter a location')
@@ -100,11 +100,12 @@ const DashCreateJob = () => {
                             error={formik.touched.description && Boolean(formik.errors.description)}
                             helperText={formik.touched.description && formik.errors.description}
                         />
+
                         <TextField sx={{ mb: 3 }}
                             fullWidth
                             id="salary"
                             name="salary"
-                            label="Salary"
+                            label="salary"
                             type="text"
                             InputLabelProps={{
                                 shrink: true,
@@ -116,6 +117,7 @@ const DashCreateJob = () => {
                             error={formik.touched.salary && Boolean(formik.errors.salary)}
                             helperText={formik.touched.salary && formik.errors.salary}
                         />
+                       
                         <TextField sx={{ mb: 3 }}
                             fullWidth
                             id="location"

@@ -67,7 +67,7 @@ const DashJobs = () => {
         {
             field: 'salary',
             headerName: 'Salary',
-            type: Number,
+            type: String,
             width: 150,
             renderCell: (values => (
                 "₹" + values.row.salary

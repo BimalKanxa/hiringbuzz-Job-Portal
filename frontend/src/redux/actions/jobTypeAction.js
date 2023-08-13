@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
+// import { useNavigate } from 'react-router-dom';
 
 import {
     CREATE_JOB_TYPE_FAIL,
@@ -30,6 +31,7 @@ export const jobTypeLoadAction = () => async (dispatch) => {
 
 // create jobs category
 export const createJobTypeAction = (jobtype) => async (dispatch) => {
+
     dispatch({ type: CREATE_JOB_TYPE_REQUEST })
 
     try {
@@ -49,4 +51,5 @@ export const createJobTypeAction = (jobtype) => async (dispatch) => {
         toast.error(error.response.data.error);
 
     }
+   
 }

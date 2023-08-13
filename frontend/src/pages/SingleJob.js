@@ -21,7 +21,7 @@ const SingleJob = () => {
     useEffect(() => {
         dispatch(jobLoadSingleAction(id));
     }, [dispatch,id]);
-    const [btntext, setbtntext] = useState("Apply for this Job")
+    const [btntext, setbtntext] = useState("Apply through official website")
     const applyForAJob = () => {
         
         dispatch(userApplyJobAction({
@@ -61,7 +61,7 @@ const SingleJob = () => {
                                                     {singleJob && singleJob.title}
                                                 </Typography>
                                                 <Typography variant="body2">
-                                                    <Box component="span" sx={{ fontWeight: 700 }}>Salary</Box>: ${singleJob && singleJob.salary}
+                                                    <Box component="span" sx={{ fontWeight: 700 }}>Salary</Box>: Rs. {singleJob && singleJob.salary}
                                                 </Typography>
                                                 <Typography variant="body2">
                                                     <Box component="span" sx={{ fontWeight: 700 }}>Category</Box>: {singleJob && singleJob.jobType ? singleJob.jobType.jobTypeName : "No category"}

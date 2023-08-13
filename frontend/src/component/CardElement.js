@@ -34,7 +34,7 @@ const CardElement = ({jobTitle, description, category, location, id}) => {
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           {category}
         </Typography>
-        <Typography variant="body2">
+        <Typography variant="body3">
           Description : {description.split("").slice(0,150).join("")+ "..."}
           <br />
         </Typography>
