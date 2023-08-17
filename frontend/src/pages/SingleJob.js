@@ -31,7 +31,7 @@ const SingleJob = () => {
             location: singleJob && singleJob.location,
             jobType : singleJob && singleJob.jobType.jobTypeName
         }))
-        setbtntext("Already applied")
+        setbtntext("Apply through official website")
 
     }
      

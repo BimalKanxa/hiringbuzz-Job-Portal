@@ -1,7 +1,8 @@
 import { Box, styled } from '@mui/material'
 import React from 'react'
-import headerImage from '../images/HiringBuzz.jpg'
+import headerImage from '../images/HiringBuzz1.svg'
 import SearchInputEl from './SearchInputEl'
+
 
 const Header = () => {
 
