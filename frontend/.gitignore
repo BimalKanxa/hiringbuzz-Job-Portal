@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+#streak
+
 /.pnp
 .pnp.js
 
