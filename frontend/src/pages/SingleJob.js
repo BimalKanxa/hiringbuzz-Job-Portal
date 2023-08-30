@@ -42,7 +42,7 @@ const SingleJob = () => {
             <Box sx={{ bgcolor: "#fafafa" }}>
 
                 <Navbar />
-                <Box sx={{ height: '85vh' }}>
+                <Box sx={{ height: 'auto' }}>
                     <Container sx={{ pt: '30px' }}>
 
                         <Stack
