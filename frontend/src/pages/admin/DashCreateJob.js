@@ -1,5 +1,5 @@
 import { Box, MenuItem, Typography } from '@mui/material'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useFormik } from 'formik';
@@ -7,6 +7,7 @@ import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux'
 import { jobTypeLoadAction } from '../../redux/actions/jobTypeAction';
 import { registerAjobAction } from '../../redux/actions/jobAction';
+import JoditEditor from 'jodit-react';
 
 
 const validationSchema = yup.object({
@@ -31,7 +32,9 @@ const validationSchema = yup.object({
 
 const DashCreateJob = () => {
     const dispatch = useDispatch();
-
+    const editor = useRef(null);
+    const [content, setContent] = useState('');
+    
     //job type
     useEffect(() => {
         dispatch(jobTypeLoadAction());
@@ -84,7 +87,7 @@ const DashCreateJob = () => {
                             error={formik.touched.title && Boolean(formik.errors.title)}
                             helperText={formik.touched.title && formik.errors.title}
                         />
-                        <TextField sx={{ mb: 3 }}
+                        {/* <TextField sx={{ mb: 3 }}
                             fullWidth
                             id="description"
                             name="description"
@@ -99,9 +102,17 @@ const DashCreateJob = () => {
                             onBlur={formik.handleBlur}
                             error={formik.touched.description && Boolean(formik.errors.description)}
                             helperText={formik.touched.description && formik.errors.description}
+                        /> */}
+                        <JoditEditor
+                        ref={editor}
+                        value={content}
+                        onChange={(newContent) => {
+                          formik.setFieldValue('description', newContent); // Update the description field
+                          setContent(newContent);
+                        }}
                         />
 
-                        <TextField sx={{ mb: 3 }}
+                        <TextField sx={{ mb: 3, mt:3 }}
                             fullWidth
                             id="salary"
                             name="salary"
@@ -163,6 +174,7 @@ const DashCreateJob = () => {
                         <Button fullWidth variant="contained" type='submit' >Create job</Button>
                     </Box>
                 </Box>
+              
             </Box>
 
         </>

@@ -12,6 +12,7 @@ const Footer = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center'
+                
             }}>
                 <Box component='span' sx={{ color: palette.primary.main }}>All rights reserved! 2023.</Box>
 

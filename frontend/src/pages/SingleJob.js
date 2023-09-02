@@ -39,7 +39,7 @@ const SingleJob = () => {
     return (
         <>
 
-            <Box sx={{ bgcolor: "#fafafa" }}>
+            <Box sx={{ bgcolor: "#fafafa",  minHeight: "90vh", }}>
 
                 <Navbar />
                 <Box sx={{ height: 'auto' }}>
@@ -70,8 +70,12 @@ const SingleJob = () => {
                                                     <Box component="span" sx={{ fontWeight: 700 }}>Location</Box>: {singleJob && singleJob.location}
                                                 </Typography>
                                                 <Typography variant="body2" sx={{ pt: 2 }}>
-                                                    {/* <h3>Job description:</h3> */}
-                                                    {singleJob && singleJob.description}
+                                                <p>&nbsp;</p>
+                                                    
+                                                    <h3>Job description:</h3> 
+                                                    <p>&nbsp;</p>
+                                                    <span dangerouslySetInnerHTML = {{__html: singleJob.description}}></span>
+                                                    {/* {singleJob && singleJob.description} */}
                                                 </Typography>
                                             </CardContent>
                                         </Card>
@@ -87,8 +91,8 @@ const SingleJob = () => {
 
                     </Container>
                 </Box>
-                <Footer />
             </Box>
+                <Footer />
         </>
     )
 }

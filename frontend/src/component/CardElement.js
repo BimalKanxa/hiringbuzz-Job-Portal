@@ -15,10 +15,12 @@ import AddIcon from '@mui/icons-material/Add';
 
 const CardElement = ({jobTitle, description, category, location, id}) => {
     const {palette} = useTheme()
+    // const truncatedDescription = description.length > 150 ? description.split("").slice(0,150).join("")+ "..." : description;  //slicing description for testing purpose
   return (
     <Card sx={{ minWidth: 275, mb:3, mt:3,
       marginBottom: 2,
-      boxShadow: "rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset"
+      boxShadow: "rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset",
+      
     }}>
 
       <CardContent>
@@ -34,10 +36,13 @@ const CardElement = ({jobTitle, description, category, location, id}) => {
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           {category}
         </Typography>
-        <Typography variant="body3">
-          Description : {description.split("").slice(0,150).join("")+ "..."}
+        <Typography variant="body1" >   
+          
+          {/* Description : {description.split("").slice(0,150).join("")+ "..."} */}
+          Description :  <p dangerouslySetInnerHTML={{ __html: description + "..." }} />
           <br />
         </Typography>
+       
       </CardContent>
       <CardActions>
       <Button disableElevation variant='contained' size="small" startIcon={<AddIcon />}><Link style={{ textDecoration: "none", color: "white", boxShadow: 0 }} to={`/job/${id}`}>More Details</Link></Button>
