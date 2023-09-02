@@ -4,7 +4,7 @@
   "description": "job portal",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "client" : "npm start --prefix frontend"
   },
   "author": "bimal",

@@ -15,7 +15,12 @@ import AddIcon from '@mui/icons-material/Add';
 
 const CardElement = ({jobTitle, description, category, location, id}) => {
     const {palette} = useTheme()
-    // const truncatedDescription = description.length > 150 ? description.split("").slice(0,150).join("")+ "..." : description;  //slicing description for testing purpose
+ 
+ 
+   // const truncatedDescription = description.length > 150 ? description.split("").slice(0,150).join("")+ "..." : description;  //slicing description for testing purpose
+  const descriptionDisplay = {
+    display: 'flex',
+  }
   return (
     <Card sx={{ minWidth: 275, mb:3, mt:3,
       marginBottom: 2,
@@ -37,9 +42,9 @@ const CardElement = ({jobTitle, description, category, location, id}) => {
           {category}
         </Typography>
         <Typography variant="body1" >   
-          
           {/* Description : {description.split("").slice(0,150).join("")+ "..."} */}
-          Description :  <p dangerouslySetInnerHTML={{ __html: description + "..." }} />
+          <b> Description : </b> 
+          <span dangerouslySetInnerHTML = {{ __html:  description.split("").slice(0,150).join("") + "...."}}></span> 
           <br />
         </Typography>
        

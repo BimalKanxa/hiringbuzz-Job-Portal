@@ -74,7 +74,7 @@ const SingleJob = () => {
                                                     
                                                     <h3>Job description:</h3> 
                                                     <p>&nbsp;</p>
-                                                    <span dangerouslySetInnerHTML = {{__html: singleJob.description}}></span>
+                                                    <span dangerouslySetInnerHTML = {{__html: singleJob && singleJob.description}}></span>
                                                     {/* {singleJob && singleJob.description} */}
                                                 </Typography>
                                             </CardContent>
