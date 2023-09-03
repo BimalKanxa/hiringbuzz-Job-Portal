@@ -12,6 +12,11 @@ import { userApplyJobAction } from '../redux/actions/userAction'
 
 
 
+const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
 const SingleJob = () => {
     
     const dispatch = useDispatch();
@@ -29,12 +34,13 @@ const SingleJob = () => {
             description: singleJob && singleJob.description,
             salary: singleJob && singleJob.salary,
             location: singleJob && singleJob.location,
-            jobType : singleJob && singleJob.jobType.jobTypeName
+            jobType : singleJob && singleJob.jobType.jobTypeName,
+            createdAt : singleJob && singleJob.createdAt
         }))
         setbtntext("Apply through official website")
 
     }
-     
+
 
     return (
         <>
@@ -66,9 +72,16 @@ const SingleJob = () => {
                                                 <Typography variant="body2">
                                                     <Box component="span" sx={{ fontWeight: 700 }}>Category</Box>: {singleJob && singleJob.jobType ? singleJob.jobType.jobTypeName : "No category"}
                                                 </Typography>
+
                                                 <Typography variant="body2">
                                                     <Box component="span" sx={{ fontWeight: 700 }}>Location</Box>: {singleJob && singleJob.location}
                                                 </Typography>
+                                                <Typography variant="body2">
+                                                    <Box component="span" sx={{ fontWeight: 700 }}>Date Created : </Box>: 
+                                                    {formatDate(singleJob && singleJob.createdAt)}
+                                                    {/* {singleJob && singleJob.createdAt} */}
+                                                </Typography>
+
                                                 <Typography variant="body2" sx={{ pt: 2 }}>
                                                 <p>&nbsp;</p>
                                                     
