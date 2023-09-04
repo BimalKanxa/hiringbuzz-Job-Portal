@@ -4,15 +4,18 @@ import { DataGrid, gridClasses } from '@mui/x-data-grid';
 import { Link } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { jobLoadAction } from '../../redux/actions/jobAction';
 import LoadingBox from '../../component/LoadingBox'
+import axios from 'axios';
+// import { updateJobList } from '../../redux/actions/jobAction';
 
-
+ 
 const DashJobs = () => {
 
 
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
     useEffect(() => {
         dispatch(jobLoadAction())
         //eslint-disable-next-line
@@ -25,8 +28,24 @@ const DashJobs = () => {
 
 
     //delete job by Id
-    const deleteJobById = (e, id) => {
-        console.log(id)
+    const deleteJobById = async (e, id) => {
+        try {
+            // Make a DELETE request to your server's API endpoint
+            const response = await axios.delete(`/api/job/delete/${id}`); // Replace with your actual API endpoint
+    
+            if (response.status === 200) {
+                console.log('Job deleted successfully');
+                // Dispatch an action to update the job list in Redux store
+                // dispatch(updateJobList(jobs.filter(job => jobs._id !== id))); //to update job list without refreshing the page
+                    navigate('/admin/dashboard')
+            } else {
+                console.error('Error deleting job:', response.data);
+            }
+
+        } catch (error) {
+            console.error('Error deleting job:', error);
+           
+        }
     }
 
     const columns = [

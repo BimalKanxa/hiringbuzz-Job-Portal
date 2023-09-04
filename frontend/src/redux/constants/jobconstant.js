@@ -12,3 +12,6 @@
 export const REGISTER_JOB_SUCCESS = "REGISTER_JOB_SUCCESS";
 export const REGISTER_JOB_FAIL = "REGISTER_JOB_FAIL";
 export const REGISTER_JOB_RESET = "REGISTER_JOB_RESET";
+
+// to update the jobs after deletion
+export const UPDATE_JOB_LIST = 'UPDATE_JOB_LIST';

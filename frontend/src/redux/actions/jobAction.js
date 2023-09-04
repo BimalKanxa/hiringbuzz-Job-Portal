@@ -2,7 +2,7 @@ import { JOB_LOAD_FAIL, JOB_LOAD_REQUEST, JOB_LOAD_SUCCESS } from "../constants/
 import { JOB_LOAD_SINGLE_FAIL, JOB_LOAD_SINGLE_REQUEST, JOB_LOAD_SINGLE_SUCCESS,
     REGISTER_JOB_FAIL,
     REGISTER_JOB_REQUEST,
-    REGISTER_JOB_SUCCESS } from "../constants/jobconstant"
+    REGISTER_JOB_SUCCESS, UPDATE_JOB_LIST } from "../constants/jobconstant"
 
 import axios from 'axios'
 import { toast } from 'react-toastify'
@@ -69,3 +69,8 @@ export const registerAjobAction = (job) => async (dispatch) => {
 
     }
 }
+    //update job after deletion
+export const updateJobList = (updatedJobList) =>({
+    type: UPDATE_JOB_LIST,
+    payload: updatedJobList
+})

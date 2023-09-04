@@ -2,7 +2,7 @@ import{JOB_LOAD_REQUEST, JOB_LOAD_SUCCESS, JOB_LOAD_FAIL, JOB_LOAD_RESET, JOB_LO
 , REGISTER_JOB_FAIL,
 REGISTER_JOB_REQUEST,
 REGISTER_JOB_RESET,
-REGISTER_JOB_SUCCESS} from '../constants/jobconstant'
+REGISTER_JOB_SUCCESS, UPDATE_JOB_LIST} from '../constants/jobconstant'
 
 export const loadJobReducer = (state={jobs:[]}, action) =>{
     switch (action.type) {
@@ -79,4 +79,21 @@ export const registerAjobReducer = (state = {}, action) => {
             return state;
     }
 
+}
+
+
+export const updateJobReducer = (state={jobs:[]}, action) =>{
+    switch (action.type) {
+        case UPDATE_JOB_LIST:
+            return {
+                ...state,
+                job: action.payload,   //update the job with the new data
+            };
+
+       
+
+    
+        default:
+            return state;
+    } 
 }

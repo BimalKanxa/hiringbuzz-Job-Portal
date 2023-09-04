@@ -94,14 +94,22 @@ const SingleJob = () => {
                                         </Card>
                                 }
                             </Box>
-                            <Box sx={{ flex: 1, p: 2 }}>
+                            {/* this button is moved below from the right side  */}
+
+                            {/* <Box sx={{ flex: 1, p: 2 }}>
+                                <Card sx={{ p: 2 }}>
+                                    <Button id='jobApplybtn' onClick={applyForAJob} sx={{ fontSize: "13px" }} variant='contained' >{btntext}</Button>
+                                </Card>
+                            </Box> */}
+
+                        </Stack>
+{/* this button is moved below from the right side  */}
+            <Box sx={{ flex: 1, p: 2 }}>
                                 <Card sx={{ p: 2 }}>
                                     <Button id='jobApplybtn' onClick={applyForAJob} sx={{ fontSize: "13px" }} variant='contained' >{btntext}</Button>
                                 </Card>
                             </Box>
-
-                        </Stack>
-
+{/* the above button was moved from right side to bottom till here  */}
                     </Container>
                 </Box>
             </Box>
