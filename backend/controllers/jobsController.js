@@ -50,7 +50,8 @@ exports.updateJob = async (req, res, next) => {
     }
 }
 
-//delete job by id.
+//delete job by id. currently this feature is not fully functional
+
 exports.deleteJob = async (req, res, next) => {
     try {
         const job = await Job.findByIdAndRemove(req.params.job_id);
