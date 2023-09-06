@@ -6,6 +6,9 @@ import AddIcon from '@mui/icons-material/Add';
 import { useDispatch, useSelector } from 'react-redux';
 import { jobTypeLoadAction } from '../../redux/actions/jobTypeAction';
 import LoadingBox from '../../component/LoadingBox'
+import axios from 'axios';
+import {toast} from 'react-toastify'
+
 
 
 import moment from 'moment'
@@ -28,8 +31,20 @@ const DashCategory = () => {
     data = (jobType !== undefined && jobType.length > 0) ? jobType : []
 
     //delete job by Id
-    const deleteJobCategoryById = (e, id) => {
-        console.log(id)
+    const deleteJobCategoryById = async(e, id) => {
+        try {
+            
+            await axios.delete(`/api/type/delete/${id}`); 
+        
+            // Perform any necessary actions after successful deletion, like updating the UI
+            // console.log('User deleted successfully');
+            toast.success("Category deleted successfully",{autoClose: 1500})
+            window.location.reload()
+          } catch (error) {
+            // Handle error
+            console.error('Error deleting user:', error);
+          }
+    
     }
 
     const columns = [

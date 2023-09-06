@@ -28,7 +28,7 @@ const DashUsers = () => {
 
         try {
             
-            await axios.delete(`/api/admin/user/delete/${id}`); // Replace with your actual API endpoint
+            await axios.delete(`/api/admin/user/delete/${id}`); 
         
             // Perform any necessary actions after successful deletion, like updating the UI
             // console.log('User deleted successfully');

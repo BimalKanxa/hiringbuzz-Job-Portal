@@ -40,6 +40,7 @@ const Register = () => {
         initialValues: {
             firstName: '',
             lastName: '',
+            role : '',
             email: '',
             password: ''
         },
@@ -114,6 +115,33 @@ const Register = () => {
                             error={formik.touched.lastName && Boolean(formik.errors.lastName)}
                             helperText={formik.touched.lastName && formik.errors.lastName}
                         />
+
+
+{/*                     <TextField
+                            sx={{
+                                mb: 2,
+                                "& .MuiInputBase-root": {
+                                    color: 'text.secondary',
+                                },
+                                fieldset: { borderColor: "rgb(231, 235, 240)" }
+                            }}
+                            fullWidth
+                            id="role"
+                            label="role"
+                            name='role'
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+
+                            placeholder="role"
+                            value={formik.values.role}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={formik.touched.role && Boolean(formik.errors.role)}
+                            helperText={formik.touched.role && formik.errors.role}
+                        /> */}
+
+
                         <TextField
                             sx={{
                                 mb: 2,
