@@ -37,6 +37,9 @@ const jobSchema = new mongoose.Schema({
         ref : "User",
         required : true
     },
+    url:{
+        type: String,
+    }
     
 }, {timestamps: true}) 
 
