@@ -13,3 +13,4 @@ to start backend -
 1. you have to create .env file in backend with the following field:
      a. database url
      b. jwt secret key
+this project will be private soon... 
