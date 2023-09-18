@@ -13,4 +13,6 @@ to start backend -
 1. you have to create .env file in backend with the following field:
      a. database url
      b. jwt secret key
-this project will be private soon... 
+this project will be private soon...
+
+this is a career portal website where users can go through the job opportunity and apply through the company's official website following the apply link.
