@@ -10,6 +10,7 @@ exports.createJob = async (req, res, next) => {
             description: req.body.description,
             salary: req.body.salary,
             location: req.body.location,
+            url: req.body.url,
             jobType: req.body.jobType,
             user: req.user.id
         });

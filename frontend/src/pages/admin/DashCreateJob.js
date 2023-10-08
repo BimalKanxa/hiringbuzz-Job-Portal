@@ -24,6 +24,9 @@ const validationSchema = yup.object({
     location: yup
         .string('Enter a location')
         .required('Location is required'),
+    url: yup
+            .string('Enter apply link')
+            .required('Url is required'),
     jobType: yup
         .string('Enter a Category')
         .required('Category is required'),
@@ -49,12 +52,14 @@ const DashCreateJob = () => {
             description: '',
             salary: '',
             location: '',
-            jobType: ''
+            jobType: '',
+            url: ''
         },
         validationSchema: validationSchema,
         onSubmit: (values, actions) => {
             dispatch(registerAjobAction(values))
             // alert(JSON.stringify(values, null, 2));
+            console.log(values)
             actions.resetForm();
         },
     });
@@ -87,22 +92,7 @@ const DashCreateJob = () => {
                             error={formik.touched.title && Boolean(formik.errors.title)}
                             helperText={formik.touched.title && formik.errors.title}
                         />
-                        {/* <TextField sx={{ mb: 3 }}
-                            fullWidth
-                            id="description"
-                            name="description"
-                            label="Description"
-                            type="text"
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            placeholder="Description"
-                            value={formik.values.description}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            error={formik.touched.description && Boolean(formik.errors.description)}
-                            helperText={formik.touched.description && formik.errors.description}
-                        /> */}
+                       
                         <JoditEditor
                         ref={editor}
                         value={content}
@@ -146,6 +136,24 @@ const DashCreateJob = () => {
                             helperText={formik.touched.location && formik.errors.location}
                         />
 
+                        
+                    <TextField sx={{ mb: 3 }}
+                            fullWidth
+                            id="url"
+                            label="Apply link"
+                            name="url"
+                            type="text"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder="Enter url here"
+                            value={formik.values.url}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={formik.touched.url && Boolean(formik.errors.url)}
+                            helperText={formik.touched.url && formik.errors.url}
+                        />
+
                         <TextField sx={{ mb: 3 }}
                             fullWidth
                             className="px-2 my-2"
@@ -160,6 +168,9 @@ const DashCreateJob = () => {
                             error={formik.touched.jobType && Boolean(formik.errors.jobType)}
                             helperText={formik.touched.jobType && formik.errors.jobType}
                         >
+
+
+
                             <MenuItem key={""} value={""}>
 
                             </MenuItem>

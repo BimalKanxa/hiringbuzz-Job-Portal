@@ -77,7 +77,7 @@ const SingleJob = () => {
                                                     <Box component="span" sx={{ fontWeight: 700 }}>Location</Box>: {singleJob && singleJob.location}
                                                 </Typography>
                                                 <Typography variant="body2">
-                                                    <Box component="span" sx={{ fontWeight: 700 }}>Date Created : </Box>: 
+                                                    <Box component="span" sx={{ fontWeight: 700 }}>Date Posted : </Box>: 
                                                     {formatDate(singleJob && singleJob.createdAt)}
                                                     {/* {singleJob && singleJob.createdAt} */}
                                                 </Typography>

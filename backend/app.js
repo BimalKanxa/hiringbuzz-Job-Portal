@@ -40,11 +40,11 @@ app.use('/api', userRoutes);
 app.use('/api', jobTypeRoute)
 app.use('/api', jobRoute)
 
-//static files for cyclic
-app.use(express.static(path.join(__dirname, '../frontend/build')))
-app.get('*', function(req,res){
-    res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
-})
+// //static files for cyclic
+// app.use(express.static(path.join(__dirname, '../frontend/build')))
+// app.get('*', function(req,res){
+//     res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
+// })
 
 
 
