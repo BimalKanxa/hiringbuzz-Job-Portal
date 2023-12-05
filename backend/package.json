@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "client" : "npm start --prefix frontend"
+    "client": "npm start --prefix frontend"
   },
   "author": "bimal",
   "license": "ISC",
   "dependencies": {
+    "@vercel/analytics": "^1.1.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
@@ -21,5 +22,5 @@
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1"
   },
-  "proxy" : "http://localhost:8000"
+  "proxy": "http://localhost:8000"
 }
